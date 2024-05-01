@@ -2,14 +2,13 @@
 
 #include "biquad.h"
 
+int main(void)
+{
+	struct bq_cfs cfs;
+	bq_cfs_init(&cfs);
 
-int main(void) {
-
-	struct bq_coeffs cfs;
-	bq_coeffs_init(&cfs);
-
-	struct bq_mono flt;
-	bq_mono_init(&flt, &cfs);
+	struct bq_stereo flt;
+	bq_stereo_init(&flt, (struct bq_cfs *[]){ &cfs, &cfs });
 
 	return 0;
 }

@@ -1,11 +1,12 @@
 CC	= gcc
-CFLAGS	= -Og -g -Wall -Wextra
-
+CFLAGS	= -O2 -march=native -Wall -Wextra 
 RM	= rm -fv
 
 SRCS	= main.c biquad.c
 OBJS	= $(SRCS:%=%.o)
 DEPS	= $(SRCS:%=%.d)
+
+CFLAGS	+= -Og -g
 
 .PHONY: all
 .DEFAULT_GOAL: all
